@@ -1,0 +1,173 @@
+.technology__page {
+	width: 100%;
+	min-height: 100vh;
+	background: url('/assets/technology/background-technology-desktop.jpg');
+	@include bg-no-repeat;
+
+	display: flex;
+	flex-direction: column;
+
+	.tech__page__title {
+		// background: red;
+		flex: 1;
+		// background: lightgrey;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-end;
+		@include max-width;
+		padding: 0 0 5rem 10rem;
+
+		h5 {
+			font-size: 3rem;
+			font-family: $main-f;
+			font-weight: 200;
+			color: $thrd-clr;
+			text-transform: uppercase;
+		}
+		span {
+			opacity: 0.4;
+			margin-right: 2rem;
+		}
+	}
+
+	.tech__container {
+		color: white;
+		flex: 0.5;
+		@include max-width;
+		display: flex;
+		padding-left: 10rem;
+
+		@include lg {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding-left: 0;
+		}
+
+		.tech__tab__container {
+			flex: 0.3;
+			display: flex;
+			flex-direction: column;
+			padding-top: 10rem;
+			button {
+				display: inline-block;
+				font-size: 2rem;
+				padding: 2rem 2.8rem;
+				border: 0.2rem solid rgba(255, 255, 255, 0.389);
+				border-radius: 50%;
+				cursor: pointer;
+				margin-bottom: 4rem;
+				&.active-tech-tab {
+					color: black;
+					background: white;
+				}
+
+				@include lg {
+					margin-right: 2rem;
+				}
+			}
+
+			@include lg {
+				order: 2;
+				flex-direction: row;
+				padding-top: 3rem;
+			}
+		}
+		.tech__text__container {
+			flex: 1;
+			// background: crimson;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			padding-right: 6rem;
+
+			@include lg {
+				order: 3;
+				padding-right: 0;
+			}
+
+			.tech__tab__text {
+				display: none;
+
+				&.active-tech-text {
+					display: flex;
+					flex-direction: column;
+					padding-top: 10rem;
+
+					@include lg {
+						align-items: center;
+						justify-content: center;
+						padding-top: 0;
+					}
+
+					span {
+						font-family: $main-f;
+						font-size: 1.4rem;
+						color: $sec-clr;
+						font-weight: 200;
+						text-transform: uppercase;
+						margin-bottom: 1rem;
+						opacity: 0.7;
+					}
+
+					h1 {
+						font-size: 4.5rem;
+						letter-spacing: 0.3rem;
+						font-weight: 200;
+						font-family: $sec-f;
+						color: $thrd-clr;
+						text-transform: uppercase;
+						margin-bottom: 2rem;
+						// line-height: 2;
+					}
+
+					p {
+						font-size: 1.6rem;
+						max-width: 90%;
+						font-family: $main-f;
+						color: $sec-clr;
+						line-height: 1.8;
+						opacity: 0.7;
+						letter-spacing: 0.14rem;
+
+						@include lg {
+							text-align: center;
+						}
+					}
+				}
+			}
+		}
+		.tech__image__container {
+			flex: 1;
+			display: flex;
+
+			justify-content: flex-end;
+			align-items: flex-start;
+
+			@include lg {
+				order: 1;
+			}
+			.tech__tab__image {
+				display: none;
+
+				&.active-tech-image {
+					display: block;
+
+					img {
+						object-fit: cover;
+						@include lg {
+							// width: 50vw;
+							height: 35rem;
+							object-fit: cover;
+						}
+
+						@include md {
+							width: 100vw;
+						}
+					}
+				}
+			}
+		}
+	}
+}

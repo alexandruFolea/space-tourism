@@ -1,0 +1,83 @@
+.intro__page {
+	width: 100%;
+	height: 100vh;
+	background: url('/assets/home/background-home-desktop.jpg');
+	@include bg-no-repeat;
+
+	&__wrapper {
+		height: 100%;
+		@include max-width;
+		padding: 10rem;
+		color: $thrd-clr;
+		display: flex;
+		align-items: flex-end;
+
+		@include lg {
+			align-items: center;
+		}
+	}
+
+	.intro__container {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+
+		@include lg {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.container__left {
+			flex: 1;
+			max-width: 45rem;
+			margin-bottom: 6rem;
+
+			@include lg {
+				margin-bottom: 8rem;
+				@include flex-center-column;
+			}
+			h5 {
+				font-family: $main-f;
+				color: $sec-clr;
+				letter-spacing: 0.4rem;
+				font-size: 2.8rem;
+			}
+			h1 {
+				font-size: 15rem;
+				font-family: $sec-f;
+				margin: 2rem 0;
+			}
+			span {
+				color: $sec-clr;
+				font-size: 1.6rem;
+				letter-spacing: 0.2rem;
+				line-height: 2.8rem;
+				font-family: $main-f;
+			}
+		}
+		.container__right {
+			flex: 1;
+			width: 100%;
+
+			.circle__div {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+
+				@include lg {
+					justify-content: center;
+				}
+
+				h1 {
+					font-size: 3rem;
+					padding: 11rem 7rem;
+					border-radius: 50%;
+					background: white;
+					color: black;
+				}
+			}
+		}
+	}
+}

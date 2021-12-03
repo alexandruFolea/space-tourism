@@ -1,12 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaBars } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
-import {
-	SiHomeassistant,
-	SiCapacitor,
-	SiHarbor,
-	SiOpenid,
-} from 'react-icons/si';
 
 const Navigation = () => {
 	let windowSize = 720;
@@ -38,34 +33,45 @@ const Navigation = () => {
 				onClick={closeMobileMenu}
 			>
 				<Link href='/'>
-					<a>Logo</a>
+					<a>
+						<Image
+							src='/assets/shared/logo.svg'
+							width='50'
+							height='50'
+							alt='logo'
+						/>
+					</a>
 				</Link>
 				{/* <h1>Logo</h1> */}
 			</div>
 
 			<ul className={open ? 'navbar__list active' : 'navbar__list'}>
 				<li onClick={closeMobileMenu}>
-					{open ? <SiHomeassistant /> : ''}
+					{/* {open ? <SiHomeassistant /> : ''} */}
+					<span>00</span>
 					<Link href='/'>
 						<a>Home</a>
 					</Link>
 				</li>
 				<li onClick={closeMobileMenu}>
-					{open ? <SiCapacitor /> : ''}
-					<Link href='/brand'>
-						<a>Brand</a>
+					{/* {open ? <SiCapacitor /> : ''} */}
+					<span>01</span>
+					<Link href='/destination'>
+						<a>Destination</a>
 					</Link>
 				</li>
 				<li onClick={closeMobileMenu}>
-					{open ? <SiHarbor /> : ''}
-					<Link href='/design'>
-						<a>Design</a>
+					{/* {open ? <SiHarbor /> : ''} */}
+					<span>02</span>
+					<Link href='/crew'>
+						<a>crew</a>
 					</Link>
 				</li>
 				<li onClick={closeMobileMenu}>
-					{open ? <SiOpenid /> : ''}
-					<Link href='/development'>
-						<a>Development</a>
+					{/* {open ? <SiOpenid /> : ''} */}
+					<span>03</span>
+					<Link href='/technology'>
+						<a>technology</a>
 					</Link>
 				</li>
 			</ul>

@@ -12,9 +12,13 @@ $mono9: hsl(210, 17%, 98%);
 $crimson: hsl(348, 95%, 50%);
 
 // fonts
-$main-f: 'Nunito', sans-serif;
-$sec-f: 'Montagu Slab', serif;
+$main-f: 'Barlow Condensed', sans-serif;
+$sec-f: 'Bellefair', serif;
 
 //box-shadow
 $box-sh3: 0.3rem 0.3rem 0.8rem rgba($mono4, 0.3);
 $box-sh9: 0.3rem 0.3rem 0.8rem rgba($mono4, 0.9);
+
+$main-clr: hsl(230, 35%, 7%);
+$sec-clr: hsl(231, 77%, 90%);
+$thrd-clr: hsl(0, 0%, 100%);
