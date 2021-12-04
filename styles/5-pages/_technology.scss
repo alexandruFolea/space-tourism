@@ -17,6 +17,13 @@
 		@include max-width;
 		padding: 0 0 5rem 10rem;
 
+		@include md {
+			// background: red;
+			justify-content: center;
+			align-items: center;
+			padding: 0;
+		}
+
 		h5 {
 			font-size: 3rem;
 			font-family: $main-f;
