@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { useState } from 'react';
-import data from '../data.json';
+import { useState, useEffect } from 'react';
+import data from '../data2.json';
 
 const DestinationTwo = () => {
 	const pdata = data.destinations;
@@ -10,6 +10,73 @@ const DestinationTwo = () => {
 	const toggleTab = (id) => {
 		setToggleState(id);
 	};
+
+	const [image, setImage] = useState([
+		{
+			id: 1,
+			img: pdata[0].images.png,
+		},
+		{
+			id: 2,
+			img: pdata[1].images.png,
+		},
+		{
+			id: 3,
+			img: pdata[2].images.png,
+		},
+		{
+			id: 4,
+			img: pdata[3].images.png,
+		},
+	]);
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth < 961) {
+				setImage([
+					{
+						id: 1,
+						img: pdata[0].images.png,
+					},
+					{
+						id: 2,
+						img: pdata[1].images.png,
+					},
+					{
+						id: 3,
+						img: pdata[2].images.png,
+					},
+					{
+						id: 4,
+						img: pdata[3].images.png,
+					},
+				]);
+			} else {
+				setImage([
+					{
+						id: 1,
+						img: pdata[0].images.webp,
+					},
+					{
+						id: 2,
+						img: pdata[1].images.webp,
+					},
+					{
+						id: 3,
+						img: pdata[2].images.webp,
+					},
+					{
+						id: 4,
+						img: pdata[3].images.webp,
+					},
+				]);
+			}
+		};
+		window.addEventListener('resize', handleResize);
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	});
 
 	return (
 		<>
@@ -64,19 +131,16 @@ const DestinationTwo = () => {
 				))}
 			</div>
 			<div className='tab__image__container'>
-				{pdata.map((pd) => (
+				{image.map((img) => (
 					<div
 						className={
-							toggleState == pd.id ? 'tab__image active-image' : 'tab__image'
+							toggleState == img.id
+								? 'tab__image active-destination-image'
+								: 'tab__image'
 						}
-						key={pd.id}
+						key={img.id}
 					>
-						<Image
-							src={pd.image}
-							width='500'
-							height='500'
-							alt='destination item'
-						/>
+						<Image src={img.img} width='500' height='500' alt='crew item' />
 					</div>
 				))}
 			</div>

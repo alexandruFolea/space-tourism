@@ -1,15 +1,71 @@
 import Image from 'next/image';
-import { useState } from 'react';
-import data from '../data.json';
+import { useState, useEffect } from 'react';
+import data from '../data2.json';
 
 const Technology = () => {
-	const tdata = data.technology;
-
 	const [toggleState, setToggleState] = useState(1);
-
 	const toggleTab = (id) => {
 		setToggleState(id);
 	};
+
+	const tdata = data.technology;
+
+	const [image, setImage] = useState([
+		{
+			id: 1,
+			img: tdata[0].images.landscape,
+		},
+		{
+			id: 2,
+			img: tdata[1].images.landscape,
+		},
+		{
+			id: 3,
+			img: tdata[2].images.landscape,
+		},
+	]);
+
+	// console.log(image);
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth < 961) {
+				setImage([
+					{
+						id: 1,
+						img: tdata[0].images.landscape,
+					},
+					{
+						id: 2,
+						img: tdata[1].images.landscape,
+					},
+					{
+						id: 3,
+						img: tdata[2].images.landscape,
+					},
+				]);
+			} else {
+				setImage([
+					{
+						id: 1,
+						img: tdata[0].images.portrait,
+					},
+					{
+						id: 2,
+						img: tdata[1].images.portrait,
+					},
+					{
+						id: 3,
+						img: tdata[2].images.portrait,
+					},
+				]);
+			}
+		};
+		window.addEventListener('resize', handleResize);
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	});
 
 	return (
 		<>
@@ -62,17 +118,17 @@ const Technology = () => {
 				))}
 			</div>
 			<div className='tech__image__container'>
-				{tdata.map((td) => (
+				{image.map((img) => (
 					<div
 						className={
-							toggleState == td.id
+							toggleState == img.id
 								? 'tech__tab__image active-tech-image'
 								: 'tech__tab__image'
 						}
-						key={td.id}
+						key={img.id}
 					>
 						<Image
-							src={td.images}
+							src={img.img}
 							width='550'
 							height='550'
 							alt='technology item'

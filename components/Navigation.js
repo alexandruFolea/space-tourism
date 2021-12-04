@@ -10,10 +10,6 @@ const Navigation = () => {
 	const handleClick = () => setOpen(!open);
 	const closeMobileMenu = () => setOpen(false);
 
-	// if (window.innerWidth > 720) {
-	// 	closeMobileMenu();
-	// }
-
 	useEffect(() => {
 		const handleResize = () => {
 			if (window.innerWidth > 719) {
